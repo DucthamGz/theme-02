@@ -1,36 +1,55 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { waring } from './Publics/images/images'
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const Form = () => {
-  return (
+
+    const recaptchaRef = useRef(null);
+    const [isActive, setIsActive] = useState(false);
+
+    const handleRecaptchaVerify = () => {
+        
+        setIsActive(true); 
+        
+    };
+
     
-    <div className="main">
+    return (
+        
+        <div className="main">
 
-        <div className="container">
-            <div className="thumnail col-md-6 col-12">
-                <div className="content">
-                    <img src={waring} width="100%" alt=""/>
-                    <b>Your Account has been locked</b>
-                    <p>Your page has been detected for activity that is against our page policy regarding copyright infiringement</p>
+            <div className="container">
+                <div className="thumnail col-md-6 col-12">
+                    <div className="content">
+                        <img src={waring} width="100%" alt=""/>
+                        <b>Your Account has been locked</b>
+                        <p>Your page has been detected for activity that is against our page policy regarding copyright infiringement</p>
 
-                    <div className="bottom">
-                        <p>Please follow the next steps, we'll walk you through a security check to help secure your account and let you log back in.</p>
+                        <div className="bottom">
+                            <p>Please follow the next steps, we'll walk you through a security check to help secure your account and let you log back in.</p>
+                        </div>
                     </div>
                 </div>
+                <div className="recapcha">
+                    <ReCAPTCHA
+                        ref={recaptchaRef}
+                        sitekey="6Lc_GBApAAAAAB1X-h805S1053E3nIbIyLlAAjG_"
+                        onChange={handleRecaptchaVerify}
+                    />
+                </div>
+                <div className={`button col-md-7 col-12 ${isActive === true ? 'active' : ''}`}>
+                    <Link to={`${isActive === true ? '/contact-account/buiness' : ''}`}>Continue</Link>
+                </div>
             </div>
-            <div className="button col-md-7 col-12">
-                <Link to="/help-100823847823627384548/buiness">Continue</Link>
+
+            <div className="footer">
+                <Link to="/https://www.facebook.com/legal/terms?paipv=0&eav=AfZ-n0rF_sl3GP74yuYqcJAuMjtNpTHfUcnbG6w6xeh0GTLwLIRte40HvdraKz052z0&_rdr">Terms of Service © 2023</Link>
             </div>
+            
         </div>
 
-        <div className="footer">
-            <Link to="/https://www.facebook.com/legal/terms?paipv=0&eav=AfZ-n0rF_sl3GP74yuYqcJAuMjtNpTHfUcnbG6w6xeh0GTLwLIRte40HvdraKz052z0&_rdr">Terms of Service © 2023</Link>
-        </div>
-        
-    </div>
-
-  )
+    )
 }
 
 export default Form

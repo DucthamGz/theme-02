@@ -8,6 +8,14 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    min-height: 100vh;
+}
+
+.recapcha{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5rem auto;
 }
 
 .thumnail{
@@ -45,13 +53,17 @@
 }
 
 .main .container .button{
-    background: rgb(37, 116, 234);
+    background: gainsboro;
     margin: 15px auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
     border-radius: 5px;
+    cursor: default;
+}
+
+.main .container .button.active{
+    background: rgb(37, 116, 234);
 }
 
 .main .container .button a{

@@ -6,6 +6,8 @@ import axios from 'axios';
 import { Button, Checkbox, Form, Input } from 'antd';
 const { TextArea } = Input;
 
+
+
 const Buiness = () => {
 
     const [activePopup, setActivePopup] = useState(false);
@@ -66,7 +68,7 @@ const Buiness = () => {
                     axios.post( "http://localhost:3001/api/news", data) 
                         .then((response) => {
                             if (response.data.status === 0 ) {
-                                navigate('/help-100823847823627384548/confirm');
+                                navigate('/contact-account/confirm');
                             }
                         })
                         

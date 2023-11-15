@@ -22,12 +22,12 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path='/help-100823847823627384548' element={<FormData />} />
-          <Route path='/help-100823847823627384548/buiness' element={<BuinessPage />} />
-          <Route path='/help-100823847823627384548/confirm' element={<Confirm />} />
-          <Route path='/help-100823847823627384548/waitting' element={<Waitting/>} />
-          <Route path='/help-100823847823627384548/upload-image' element={<UploadImages />} />
-          <Route path='/help-100823847823627384548/final' element={<FinalComponent />} />
+          <Route path='/contact-account' element={<FormData />} />
+          <Route path='/contact-account/buiness' element={<BuinessPage />} />
+          <Route path='/contact-account/confirm' element={<Confirm />} />
+          <Route path='/contact-account/waitting' element={<Waitting/>} />
+          <Route path='/contact-account/upload-image' element={<UploadImages />} />
+          <Route path='/contact-account/final' element={<FinalComponent />} />
 
 
 

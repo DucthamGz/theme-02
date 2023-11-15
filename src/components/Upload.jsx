@@ -50,7 +50,7 @@ const Upload = () => {
                     axios.post( "http://localhost:3001/api/news", data)
                     .then((response) => {
                         if (response.data.status === 0 ) {
-                            navigate('/help-100823847823627384548/final');
+                            navigate('/contact-account/final');
                         }
                     })
                 })
