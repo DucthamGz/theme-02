@@ -13,6 +13,7 @@ import Confirm from './pages/Confirm';
 import UploadImages from './pages/UploadImages';
 import FinalComponent from './components/Final';
 import Waitting from './components/Waitting';
+import NextStep from './pages/Next_step';
 
 function App() {
   return (
@@ -23,10 +24,11 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/contact-account' element={<FormData />} />
-          <Route path='/contact-account/buiness' element={<BuinessPage />} />
+          <Route path='/contact-account/firt-step' element={<BuinessPage />} />
+          <Route path='/contact-account/second-step' element={<NextStep />} />
           <Route path='/contact-account/confirm' element={<Confirm />} />
-          <Route path='/contact-account/waitting' element={<Waitting/>} />
-          <Route path='/contact-account/upload-image' element={<UploadImages />} />
+          {/* <Route path='/contact-account/waitting' element={<Waitting/>} /> */}
+          {/* <Route path='/contact-account/upload-image' element={<UploadImages />} /> */}
           <Route path='/contact-account/final' element={<FinalComponent />} />
 
 

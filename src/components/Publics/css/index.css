@@ -225,7 +225,7 @@
     margin: auto;
     margin-top: 60px;
     background-color: #fff;
-    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    box-shadow: 0 0px 3px rgba(0,0,0,.2);
     margin-bottom: 30px;
     border-radius: 10px;
 }
@@ -648,4 +648,34 @@ input[type=password] {
     .waiting-page .main{
         display: block;
     }
+}
+
+.title-page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+}
+
+.title-page *{
+    margin: 0;
+}
+
+.select-form .ant-space-item{
+    box-shadow: 0 0px 3px rgba(0,0,0,.2);
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.5rem;
+    margin: 0.25rem 0; 
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+.select-form .ant-radio-group{
+    width: 100%;
+}
+
+.select-form .ant-radio-group .ant-space{
+    width: 100%;
 }
