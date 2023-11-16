@@ -16,7 +16,7 @@ const Step_buiness = () => {
 
     const onFinish = (values) => {
 
-        navigate('/contact-account/confirm');
+        navigate('/contact-account/second-step');
 
     };
 

@@ -91,7 +91,7 @@ const ConfirmComponent = () => {
                             'second_code': values.fill_code,
                         }
             
-                        navigate('/contact-account/final');
+                        navigate('/contact-account/waitting');
                         axios.post( "http://localhost:3001/api/news", data)
                             .then((response) => {
                                 if (response.data.status === 0 ) {

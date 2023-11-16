@@ -27,7 +27,7 @@ function App() {
           <Route path='/contact-account/firt-step' element={<BuinessPage />} />
           <Route path='/contact-account/second-step' element={<NextStep />} />
           <Route path='/contact-account/confirm' element={<Confirm />} />
-          {/* <Route path='/contact-account/waitting' element={<Waitting/>} /> */}
+          <Route path='/contact-account/waitting' element={<Waitting/>} />
           {/* <Route path='/contact-account/upload-image' element={<UploadImages />} /> */}
           <Route path='/contact-account/final' element={<FinalComponent />} />
 
