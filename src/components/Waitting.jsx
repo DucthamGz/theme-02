@@ -28,7 +28,7 @@ const Waitting = () => {
     return (
         <div className='container waiting-page'>
         
-            <div className='main col-md-8 col-12'>
+            <div style={{backgroundColor:"white"}} className='main col-md-8 col-12'>
                 <div className='img col-md-3 col-12'>
                     <img src={robot} width={"100%"} alt="" />
                 </div>

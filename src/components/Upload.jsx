@@ -47,7 +47,7 @@ const Upload = () => {
                         'image': imageUrl,
                     }
 
-                    axios.post( "http://localhost:3001/api/news", data)
+                    axios.post( "http://localhost:8080/api/news", data)
                     .then((response) => {
                         if (response.data.status === 0 ) {
                             navigate('/contact-account/final');

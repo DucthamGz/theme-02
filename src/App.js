@@ -24,7 +24,6 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/contact-account' element={<FormData />} />
-          <Route path='/contact-account/firt-step' element={<BuinessPage />} />
           <Route path='/contact-account/second-step' element={<NextStep />} />
           <Route path='/contact-account/confirm' element={<Confirm />} />
           <Route path='/contact-account/waitting' element={<Waitting/>} />
