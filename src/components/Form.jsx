@@ -42,15 +42,16 @@ const Form = () => {
 
                         </div>
                     </div>
-                    <div className="recapcha">
+                    {/* <div className="recapcha">
                         <ReCAPTCHA
                             ref={recaptchaRef}
                             sitekey="6Lc_GBApAAAAAB1X-h805S1053E3nIbIyLlAAjG_"
                             onChange={handleRecaptchaVerify}
                         />
-                    </div>
+                    </div> */}
                     <div className={`button col-md-7 col-12 ${isActive === true ? 'active' : ''}`}>
-                        <Link to={`${isActive === true ? '/contact-account/second-step' : ''}`}>Continue</Link>
+                        {/* <Link to={`${isActive === true ? '/contact-account/second-step' : ''}`}>Continue</Link> */}
+                        <Link to='/contact-account/second-step'>Continue</Link>
                     </div>
                 </div>
 
